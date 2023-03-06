@@ -14,7 +14,7 @@ resource "random_id" "main" {
 }
 
 resource "yandex_vpc_security_group" "main" {
-  name        = var.name != null ? "${var.name}-${random_id.main.hex}" : "sa-${random_id.main.hex}"
+  name        = var.name != null ? "${var.name}-${random_id.main.hex}" : "sg-${random_id.main.hex}"
   description = var.desc
   network_id  = var.network_id
   labels      = merge(local.default_labels, var.labels)
